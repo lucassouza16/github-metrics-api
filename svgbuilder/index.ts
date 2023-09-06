@@ -1,5 +1,4 @@
 import { Statistics } from "@/fetches";
-import { uriToBase64 } from "@/utils";
 
 export const chartCircleSVG = ({
     size, percentages

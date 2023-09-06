@@ -42,12 +42,7 @@ export const fetchRepoStatistics = async (): Promise<Statistics> => {
           }
         }`
         })
-    }).then(e => e.json())
-        .then(e => {
-            console.log(e);
-
-            return e.data;
-        });
+    }).then(e => e.json()).then(e => e.data);
 
     return {
         name: result.user.name,
