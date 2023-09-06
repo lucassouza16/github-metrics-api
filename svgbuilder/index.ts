@@ -46,7 +46,7 @@ export const githubLogoSVG = ({ size }: { size: number }) => `
 
 export const profileSVG = async (result: Statistics) => {
 
-    const languages = result.languages.slice(0, 9);
+    const languages = result.languages.slice(0, 8);
 
     const totalSize = languages.reduce((prev, l) => prev + l.size, 0);
     const percentages = languages.map(({ color, name, size }) => ({ color, name, value: size / totalSize }));
@@ -100,7 +100,7 @@ export const profileSVG = async (result: Statistics) => {
         .languages{
            width: 100%;
            display: grid;
-           grid-template-columns: 1fr 1fr 1fr;
+           grid-template-columns: 1fr 1fr 1fr 1fr;
            gap: 10px;
         }
         .language{
@@ -110,11 +110,20 @@ export const profileSVG = async (result: Statistics) => {
         .language>div{
            flex: 1;
            padding: 10px;
+           display: flex;
+           flex-direction: column;
+           justify-content: space-between;
+        }
+        .language h4{
+           font-size: 15pt;
+        }
+        .language p{
+           text-align: right;
         }
         .language:after{
           content: ' ';
           display: block;
-          height: 10px;
+          height: 12px;
           background: var(--color);
         }
         .bordered{
@@ -130,6 +139,7 @@ export const profileSVG = async (result: Statistics) => {
         .followers-following>div{
            text-align: center;
            flex: 1;
+           padding: 5px;
         }
         .followers-following>div span{
            font-size: 10pt;
