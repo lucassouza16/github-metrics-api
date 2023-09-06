@@ -1,5 +1,5 @@
 import { Statistics } from "@/fetches";
-import { htmlEncode } from "@/utils";
+import { uriToBase64 } from "@/utils";
 
 export const chartCircleSVG = ({
     size, percentages
@@ -39,12 +39,14 @@ export const chartCircleSVG = ({
    `;
 };
 
-export const profileSVG = (result: Statistics) => {
+export const profileSVG = async (result: Statistics) => {
 
     const languages = result.languages.slice(0, 9);
 
     const totalSize = languages.reduce((prev, l) => prev + l.size, 0);
     const percentages = languages.map(({ color, name, size }) => ({ color, name, value: size / totalSize }));
+
+    const image = await uriToBase64(result.avatar);
 
     return `
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="300">
@@ -138,7 +140,7 @@ export const profileSVG = (result: Statistics) => {
       <div id="main" class="bordered" xmlns="http://www.w3.org/1999/xhtml">
         <div class="profile">
           <div class="chart">
-          <img src="${htmlEncode(result.avatar)}" />
+          <img src="${image}" />
           ${chartCircleSVG({ size: 160, percentages })}
           </div>
           <div class="data">
