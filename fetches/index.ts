@@ -32,6 +32,8 @@ export const fetchRepoStatistics = async (): Promise<LanguageStatistics[]> => {
         })
     }).then(e => e.json())
         .then(e => {
+            console.log(e);
+            
             const data = e.data.user.repositories.nodes;
 
             const languages = data.reduce((prev: any[], current: any) => {
