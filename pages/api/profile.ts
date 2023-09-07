@@ -1,12 +1,11 @@
-import { fetchRepoStatistics } from '@/fetches'
+import { fetchRepoStatistics } from '@/fetches';
 import { profileSVG } from '@/svgbuilder';
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<string>
 ) {
-
   const result = await fetchRepoStatistics();
 
   res.setHeader('Content-Type', 'image/svg+xml');

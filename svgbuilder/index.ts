@@ -55,12 +55,13 @@ export const profileSVG = async (result: Statistics) => {
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="300">
     <foreignObject width="100%" height="100%">
        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto');
+       @import url('https://fonts.googleapis.com/css2?family=Poppins');
         * {
-           font-family: 'Roboto', sans-serif;
+           font-family: 'Poppins', sans-serif;
            box-sizing: border-box;
            margin: 0;
            padding: 0;
+           color: #3d3b3b;
         }
         #main {
            height: 100%;
@@ -80,8 +81,6 @@ export const profileSVG = async (result: Statistics) => {
            width: 160px;
            height: 160px;
            position: relative;
-           border-radius: 100%;
-           overflow: hidden;
         }
         .chart svg {
            position: absolute;
@@ -102,6 +101,7 @@ export const profileSVG = async (result: Statistics) => {
            display: grid;
            grid-template-columns: 1fr 1fr 1fr 1fr;
            gap: 10px;
+           flex: 1;
         }
         .language{
            display: flex;
@@ -109,13 +109,13 @@ export const profileSVG = async (result: Statistics) => {
         }
         .language>div{
            flex: 1;
-           padding: 10px;
+           padding: 5px;
            display: flex;
            flex-direction: column;
            justify-content: space-between;
         }
         .language h4{
-           font-size: 15pt;
+           font-size: 12pt;
         }
         .language p{
            text-align: right;
@@ -143,12 +143,27 @@ export const profileSVG = async (result: Statistics) => {
         }
         .followers-following>div span{
            font-size: 10pt;
+           line-height: 10pt;
+           display: block;
+        }
+        .followers-following>div h4{
+           line-height: 12pt;
+           margin-bottom: 3px;
         }
         .profile .data{
            text-align: center;
         }
         .profile .data p {
-          font-size: 10pt;
+          font-size: 9pt;
+        }
+        .content{
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          gap: 10px;
+        }
+        .content>h2{
+          font-size: 15pt;
         }
       </style>
       <div id="main" class="bordered" xmlns="http://www.w3.org/1999/xhtml">
@@ -172,16 +187,19 @@ export const profileSVG = async (result: Statistics) => {
              </div>
           </div>
         </div>
+        <div class="content">
+        <h2>Most used technologies</h2>
         <div class="languages">
-           ${percentages.map(p => `
-                 <div class="language bordered" style="--color:${p.color}">
-                    <div>
-                      <h4>${p.name}</h4>
-                      <p>${(p.value * 100).toFixed(2)}%</p>
-                    </div>
-                 </div>
+            ${percentages.map(p => `
+                <div class="language bordered" style="--color:${p.color}">
+                   <div>
+                    <h4>${p.name}</h4>
+                    <p>${(p.value * 100).toFixed(2)}%</p>
+                   </div>
+                </div>
               `).join('')
-        }
+             }
+          </div>
         </div>
       </div>
     </foreignObject>
