@@ -8,6 +8,8 @@ export default async function handler(
 ) {
   const result = await fetchRepoStatistics();
 
-  res.setHeader('Content-Type', 'image/svg+xml');
+  res.setHeader("Content-Type", "image/svg+xml");
+  res.setHeader("Cache-Control", `max-age=${6 * 60 * 1000}`);
+  res.setHeader("Content-Security-Policy", "frame-src 'self'; frame-ancestors 'self'; object-src 'none'");
   res.status(200).send(await profileSVG(result));
 }

@@ -193,7 +193,8 @@ export const profileSVG = async (result: Statistics) => {
         <div class="content">
         <h2>Most used technologies</h2>
         <div class="languages">
-            ${percentages.map(p => `
+            ${
+               percentages.map(p => `
                 <div class="language bordered" style="--color:${p.color}">
                    <div>
                     <h4>${p.name}</h4>
