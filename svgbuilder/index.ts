@@ -61,7 +61,7 @@ export const profileSVG = async (result: Statistics) => {
            box-sizing: border-box;
            margin: 0;
            padding: 0;
-           color: #3d3b3b;
+           color: #262424;
         }
         #main {
            height: 100%;
