@@ -56,12 +56,15 @@ export const profileSVG = async (result: Statistics) => {
     <foreignObject width="100%" height="100%">
        <style>
        @import url('https://fonts.googleapis.com/css2?family=Poppins');
+        :root {
+           --black-1: #262424;
+        }
         * {
            font-family: 'Poppins', sans-serif;
            box-sizing: border-box;
            margin: 0;
            padding: 0;
-           color: #262424;
+           color: var(--black-1);
         }
         #main {
            height: 100%;
@@ -84,7 +87,7 @@ export const profileSVG = async (result: Statistics) => {
         }
         .chart svg {
            position: absolute;
-           fill: #50656f;
+           fill: var(--black-1);
         }
         .chart img {
            position: absolute;
@@ -96,28 +99,28 @@ export const profileSVG = async (result: Statistics) => {
            width: 90%;
            height: 90%;
         }
-        .languages{
+        .languages {
            width: 100%;
            display: grid;
            grid-template-columns: 1fr 1fr 1fr 1fr;
            gap: 10px;
            flex: 1;
         }
-        .language{
+        .language {
            display: flex;
            flex-direction: column;
         }
-        .language>div{
+        .language>div {
            flex: 1;
            padding: 5px;
            display: flex;
            flex-direction: column;
            justify-content: space-between;
         }
-        .language h4{
+        .language h4 {
            font-size: 13.5pt;
         }
-        .language p{
+        .language p {
            text-align: right;
         }
         .language:after{
@@ -126,43 +129,43 @@ export const profileSVG = async (result: Statistics) => {
           height: 12px;
           background: var(--color);
         }
-        .bordered{
+        .bordered {
           border: 1px solid #d0d7de;
           border-radius: 6px;
           overflow: hidden;
         }
-        .followers-following{
+        .followers-following {
           display: flex;
           width: 100%;
           gap: 10px;
         }
-        .followers-following>div{
+        .followers-following>div {
            text-align: center;
            flex: 1;
            padding: 5px;
         }
-        .followers-following>div span{
+        .followers-following>div span {
            font-size: 10pt;
            line-height: 10pt;
            display: block;
         }
-        .followers-following>div h4{
+        .followers-following>div h4 {
            line-height: 12pt;
            margin-bottom: 3px;
         }
-        .profile .data{
+        .profile .data {
            text-align: center;
         }
         .profile .data p {
           font-size: 9pt;
         }
-        .content{
+        .content {
           display: flex;
           flex-direction: column;
           flex: 1;
           gap: 10px;
         }
-        .content>h2{
+        .content>h2 {
           font-size: 15pt;
         }
       </style>
