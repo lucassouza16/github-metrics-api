@@ -8,3 +8,21 @@ export const uriToBase64 = (uri: string): Promise<string | null> => {
         }).catch(() => resolve(null));
     });
 }
+
+export const hexToRGB = (hex: string) => {
+    const res = (/^\#(((.{1})(.{1})(.{1})(.{1})?)|((.{2})(.{2})(.{2})(.{2})?))$/).exec(hex);
+
+    if (!res) return null;
+
+    const r = res[8] ?? res[3];
+    const g = res[9] ?? res[4];
+    const b = res[10] ?? res[5];
+    const a = res[11] ?? res[6] ?? 'ff';
+
+    return {
+       r: parseInt(r, 16),
+       g: parseInt(g, 16),
+       b: parseInt(b, 16),
+       a: parseInt(a, 16),
+    };
+}
