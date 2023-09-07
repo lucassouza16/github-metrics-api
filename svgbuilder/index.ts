@@ -115,7 +115,7 @@ export const profileSVG = async (result: Statistics) => {
            justify-content: space-between;
         }
         .language h4{
-           font-size: 12pt;
+           font-size: 13.5pt;
         }
         .language p{
            text-align: right;
